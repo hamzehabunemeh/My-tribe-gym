@@ -14,7 +14,7 @@ INSTAGRAM = "https://www.instagram.com/mytribegym"
 YOUTUBE = "https://youtube.com/@mytribegym"
 MAPS_LINK = "https://maps.app.goo.gl/XBnPt5Qfo8Q3GdXn6"
 MAP_EMBED = "https://www.google.com/maps?q=My+Tribe+Gym+Amman&output=embed"
-SITE_URL = "https://my-tribe-gym.netlify.app/"
+SITE_URL = "https://hamzehabunemeh.github.io/My-tribe-gym/"
 
 def wa(lang, msg=None):
     if msg is None:
