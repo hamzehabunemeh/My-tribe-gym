@@ -383,7 +383,7 @@ def p_index(lang):
       <div class="hero-stats">
         <div><strong>6</strong><span>{'Programs' if en else 'برامج'}</span></div>
         <div><strong>8</strong><span>{'Coaches' if en else 'مدربين'}</span></div>
-        <div><strong>30+</strong><span>{'Classes / week' if en else 'حصة أسبوعياً'}</span></div>
+        <div><strong>24</strong><span>{'Classes / week' if en else 'حصة أسبوعياً'}</span></div>
       </div>
     </div>
     <div class="phone">
