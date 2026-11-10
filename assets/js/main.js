@@ -67,10 +67,65 @@
     if (label) label.hidden = false;
   });
 
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // scroll progress bar + hero parallax
+  var bar = document.querySelector('.progress'), heroBg = document.querySelector('.hero-bg'),
+      pageHero = document.querySelector('.page-hero'), ticking = false;
+  function onMove() {
+    var y = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+    if (bar) bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y / h) : 0) + ')';
+    if (!reduce && y < window.innerHeight * 1.2) {
+      if (heroBg) heroBg.style.transform = 'translate3d(0,' + (y * 0.3) + 'px,0)';
+      if (pageHero && window.innerWidth > 860) pageHero.style.backgroundPosition = 'center calc(50% + ' + (y * 0.35) + 'px)';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onMove); } }, { passive: true });
+  onMove();
+
+  // stagger cards inside grids
+  document.querySelectorAll('.grid, .features, .gallery').forEach(function (g) {
+    var i = 0;
+    Array.prototype.forEach.call(g.children, function (c) {
+      if (c.classList.contains('reveal') || g.classList.contains('features')) {
+        c.classList.add('reveal'); c.style.transitionDelay = (i++ % 8) * 90 + 'ms';
+      }
+    });
+  });
+
+  // count-up numbers
+  function countUp(el) {
+    var end = parseInt(el.dataset.count, 10), start = null, dur = 1400;
+    if (reduce || !end) { el.textContent = end; return; }
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min(1, (ts - start) / dur), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(end * e);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    el.textContent = '0'; setTimeout(function () { requestAnimationFrame(step); }, 1100);
+  }
+  document.querySelectorAll('[data-count]').forEach(countUp);
+
+  // smooth page transitions (fallback for browsers without view transitions)
+  if (!reduce && !('onpagereveal' in window)) {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a');
+      if (!a || a.target || e.metaKey || e.ctrlKey || e.shiftKey || a.hasAttribute('download')) return;
+      var url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || (url.pathname === location.pathname && url.hash)) return;
+      e.preventDefault();
+      document.body.classList.add('leaving');
+      setTimeout(function () { location.href = a.href; }, 230);
+    });
+    window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
+  }
+
   // reveal on scroll
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      es.forEach(function (e) { if (e.isIntersecting) { var t = e.target; t.classList.add('in'); io.unobserve(t); setTimeout(function () { t.style.transitionDelay = ''; }, 1600); } });
     }, { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
   } else document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });

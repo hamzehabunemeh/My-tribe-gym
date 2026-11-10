@@ -243,6 +243,7 @@ def head(lang, page):
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"ExerciseGym","name":"My Tribe Gym","url":"{SITE_URL}","telephone":"{PHONE}","image":"{SITE_URL}assets/img/cover.webp","hasMap":"{MAPS_LINK}","sameAs":["{INSTAGRAM}","{YOUTUBE}"],"openingHoursSpecification":[{{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"06:00","closes":"21:00"}}]}}</script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 """
 
 def header(lang, page):
@@ -379,16 +380,16 @@ def p_index(lang):
   <div class="container hero-inner">
     <div class="hero-text">
       <span class="eyebrow">{'Community-driven gym · Amman' if en else 'نادي قائم على روح المجتمع'}</span>
-      <h1>{'Train hard.<br>Move well.<br><em>Belong.</em>' if en else 'تمرّن بقوة.<br>تحرّك صح.<br><em>كن جزءاً من مجتمعنا.</em>'}</h1>
+      <h1 class="hero-title">{'<span class="ln">Train hard.</span><span class="ln">Move well.</span><span class="ln"><em>Belong.</em></span>' if en else '<span class="ln">تمرّن بقوة.</span><span class="ln">تحرّك صح.</span><span class="ln"><em>كن جزءاً من مجتمعنا.</em></span>'}</h1>
       <p class="lead">{'My Tribe Gym is more than a place to work out — it’s a community of people who push each other, celebrate each other and grow together. Functional fitness, calisthenics, weightlifting and expert coaching under one roof.' if en else 'My Tribe Gym أكثر من مكان للتمرين، هو مجتمع من أشخاص يشجّعون بعضهم ويحتفلون بإنجازات بعضهم ويتطورون معاً. لياقة وظيفية، كاليسثنكس، رفع أثقال، وتدريب احترافي تحت سقف واحد.'}</p>
       <div class="hero-ctas">
         <a class="btn btn-red" href="{wa(lang)}" target="_blank" rel="noopener">{ICON['wa']} {t['free_trial']}</a>
         <a class="btn btn-ghost" href="{href(lang, 'schedule')}">{'View schedule' if en else 'شاهد الجدول'}</a>
       </div>
       <div class="hero-stats">
-        <div><strong>6</strong><span>{'Programs' if en else 'برامج'}</span></div>
-        <div><strong>8</strong><span>{'Coaches' if en else 'مدربين'}</span></div>
-        <div><strong>24</strong><span>{'Classes / week' if en else 'حصة أسبوعياً'}</span></div>
+        <div><strong data-count="6">6</strong><span>{'Programs' if en else 'برامج'}</span></div>
+        <div><strong data-count="8">8</strong><span>{'Coaches' if en else 'مدربين'}</span></div>
+        <div><strong data-count="24">24</strong><span>{'Classes / week' if en else 'حصة أسبوعياً'}</span></div>
       </div>
     </div>
   </div>

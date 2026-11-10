@@ -296,7 +296,43 @@ a.contact-item:hover{border-color:var(--red)}
 .wa-float:hover{transform:scale(1.08)}
 .wa-float svg{width:32px;height:32px;color:#fff}
 
+/* ---------- motion ---------- */
+.progress{position:fixed;top:0;inset-inline-start:0;height:3px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;z-index:100;box-shadow:0 0 10px rgba(218,0,0,.7)}
+html[dir="rtl"] .progress{transform-origin:right}
+.hero-title .ln{display:block;opacity:0;transform:translateY(40px);animation:lineIn .8s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-title .ln:nth-child(1){animation-delay:.15s}.hero-title .ln:nth-child(2){animation-delay:.35s}.hero-title .ln:nth-child(3){animation-delay:.55s}
+.hero .eyebrow,.hero .lead,.hero-ctas,.hero-stats{opacity:0;animation:fadeUp .8s ease forwards}
+.hero .eyebrow{animation-delay:.05s}.hero .lead{animation-delay:.75s}.hero .hero-ctas{animation-delay:.9s}.hero .hero-stats{animation-delay:1.05s}
+@keyframes lineIn{to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero-bg{will-change:transform;inset:-12% 0 0 0}
+.page-hero{background-attachment:scroll}
+/* hover zoom */
+.prog-card .img{transition:transform .6s ease,filter .4s}
+.prog-card:hover .img{transform:scale(1.07)}
+.split-img{transition:transform .6s ease}
+.split-img:hover{transform:scale(1.02)}
+.gallery a{transition:transform .5s ease,filter .3s}
+.gallery a:hover{transform:scale(1.03);z-index:1}
+.coach .avatar span{transition:transform .5s ease}
+.coach:hover .avatar span{transform:scale(1.1)}
+/* button glow + shine */
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-20deg);transition:left .6s ease;pointer-events:none}
+.btn:hover::after{left:130%}
+.btn-red:hover{box-shadow:0 0 0 4px rgba(218,0,0,.22),0 10px 28px rgba(218,0,0,.5)}
+.btn-ghost:hover{box-shadow:0 10px 28px rgba(255,255,255,.12)}
+/* page transitions */
+@view-transition{navigation:auto}
+body{animation:pageIn .45s ease both}
+body.leaving{opacity:0;transition:opacity .25s ease}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.hero-title .ln,.hero .eyebrow,.hero .lead,.hero-ctas,.hero-stats{opacity:1!important;transform:none!important}
+  .progress{display:none}html{scroll-behavior:auto}
+}
