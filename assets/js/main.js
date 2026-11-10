@@ -10,8 +10,8 @@
     burger.setAttribute('aria-expanded', open);
   });
 
-  // hero video: autoplay muted + sound toggle
-  var video = document.querySelector('.hero video'), sbtn = document.querySelector('.sound-btn');
+  // home video: autoplay muted + sound toggle
+  var video = document.querySelector('.phone video'), sbtn = document.querySelector('.sound-btn');
   if (video) {
     video.muted = true;
     var p = video.play(); if (p && p.catch) p.catch(function () {});
