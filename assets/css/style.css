@@ -79,8 +79,7 @@ html[dir="rtl"] .hero-bg::after{background:linear-gradient(270deg,rgba(0,0,0,.92
 .hero-stats strong{display:block;font-family:var(--display);font-size:2rem;color:#fff}
 .hero-stats span{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em}
 html[lang="ar"] .hero-stats span{letter-spacing:0;font-size:.95rem}
-.phone{position:relative;justify-self:center;width:min(330px,100%);aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:3px solid #222;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(218,0,0,.4);transform:rotate(2deg)}
-html[dir="rtl"] .phone{transform:rotate(-2deg)}
+.phone{position:relative;justify-self:center;width:min(330px,100%);aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:3px solid #222;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(218,0,0,.4)}
 .phone::before{content:"";position:absolute;inset:-14px auto auto -14px;width:70px;height:70px;border-top:4px solid var(--red);border-left:4px solid var(--red);z-index:3;pointer-events:none}
 .phone video{width:100%;height:100%;object-fit:cover}
 .sound-btn{position:absolute;z-index:4;bottom:14px;inset-inline-end:14px;width:46px;height:46px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(4px);transition:.2s}
