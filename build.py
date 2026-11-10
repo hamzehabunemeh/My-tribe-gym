@@ -83,7 +83,7 @@ PRICES = [
     # key, name_en, name_ar, amount, per_en, per_ar, features_en, features_ar, featured
     ("monthly", "1 Month", "شهر واحد", 60, "per month", "شهرياً",
      ["Unlimited TribeFit classes", "Open gym access", "Community events"],
-     ["حصص TribeFit غير محدودة", "استخدام الجيم المفتوح", "فعاليات المجتمع"], False),
+     ["حصص TribeFit غير محدودة", "استخدام النادي المفتوح", "فعاليات المجتمع"], False),
     ("quarter", "3 Months", "3 أشهر", 165, "≈ 55 JOD / month", "≈ 55 دينار شهرياً",
      ["Everything in 1 Month", "All group classes", "Body composition check-in"],
      ["كل ما في باقة الشهر", "جميع الحصص الجماعية", "قياس تكوين الجسم"], True),
@@ -166,11 +166,11 @@ T = {
   "dir": "rtl", "other": "en", "other_label": "EN",
   "nav": {"index": "الرئيسية", "about": "من نحن", "programs": "البرامج", "schedule": "الجدول", "coaches": "المدربون",
           "membership": "الاشتراكات", "facilities": "المرافق", "contact": "تواصل معنا"},
-  "titles": {"index": "My Tribe Gym | جيم اللياقة الوظيفية والمجتمع الرياضي",
+  "titles": {"index": "My Tribe Gym | نادي اللياقة الوظيفية والمجتمع الرياضي",
              "about": "من نحن | My Tribe Gym", "programs": "البرامج | My Tribe Gym", "schedule": "جدول الحصص والدوام | My Tribe Gym",
              "coaches": "المدربون | My Tribe Gym", "membership": "الاشتراكات والأسعار | My Tribe Gym",
              "facilities": "المرافق والكافيه | My Tribe Gym", "contact": "تواصل معنا | My Tribe Gym"},
-  "desc": "My Tribe Gym — جيم قائم على روح المجتمع: لياقة وظيفية، كاليسثنكس، رفع أثقال، وقاية من الإصابات، حصص TribeFit وتدريب خاص. احجز حصتك التجريبية المجانية.",
+  "desc": "My Tribe Gym — نادي قائم على روح المجتمع: لياقة وظيفية، كاليسثنكس، رفع أثقال، وقاية من الإصابات، حصص TribeFit وتدريب خاص. احجز حصتك التجريبية المجانية.",
   "free_trial": "احجز حصتك المجانية", "book_wa": "احجز عبر واتساب",
   "sound": "تشغيل/إيقاف الصوت",
  },
@@ -267,7 +267,7 @@ def footer(lang):
     <div class="foot">
       <div>
         <a class="brand" href="{href(lang, 'index')}"><img src="{asset(lang, 'img/logo-white.png')}" alt="My Tribe Gym" width="80" height="60"></a>
-        <p style="margin-top:1rem;max-width:300px">{'More than a gym — a tribe. Train hard, move well and belong.' if en else 'أكثر من جيم، نحن قبيلة. تمرّن بقوة، تحرّك بشكل صحيح، وكن جزءاً منا.'}</p>
+        <p style="margin-top:1rem;max-width:300px">{'More than a gym — a tribe. Train hard, move well and belong.' if en else 'أكثر من مجرد نادي، نحن مجتمع. تمرّن بقوة، تحرّك بشكل صحيح، وكن جزءاً منا.'}</p>
         <div class="socials">
           <a href="{INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram">{ICON['ig']}</a>
           <a href="{YOUTUBE}" target="_blank" rel="noopener" aria-label="YouTube">{ICON['yt']}</a>
@@ -310,7 +310,7 @@ def cta_band(lang):
     return f"""<section class="cta-band">
   <div class="container reveal">
     <span class="eyebrow" style="justify-content:center">{'Your first class is on us' if en else 'حصتك الأولى علينا'}</span>
-    <h2>{'Join the Tribe' if en else 'انضم إلى القبيلة'}</h2>
+    <h2>{'Join the Tribe' if en else 'انضم إلى My Tribe'}</h2>
     <p>{'Come train with us, meet the coaches and feel the community. Your trial class is completely free.' if en else 'تعال تمرّن معنا، تعرّف على المدربين، وعِش أجواء المجتمع. حصتك التجريبية مجانية بالكامل.'}</p>
     <a class="btn btn-red" href="{wa(lang)}" target="_blank" rel="noopener">{ICON['wa']} {T[lang]['free_trial']}</a>
   </div>
@@ -373,8 +373,8 @@ def p_index(lang):
   <div class="hero-bg"></div>
   <div class="container hero-inner">
     <div class="hero-text">
-      <span class="eyebrow">{'Community-driven gym · Amman' if en else 'جيم قائم على روح المجتمع'}</span>
-      <h1>{'Train hard.<br>Move well.<br><em>Belong.</em>' if en else 'تمرّن بقوة.<br>تحرّك صح.<br><em>كن من القبيلة.</em>'}</h1>
+      <span class="eyebrow">{'Community-driven gym · Amman' if en else 'نادي قائم على روح المجتمع'}</span>
+      <h1>{'Train hard.<br>Move well.<br><em>Belong.</em>' if en else 'تمرّن بقوة.<br>تحرّك صح.<br><em>كن جزءاً من مجتمعنا.</em>'}</h1>
       <p class="lead">{'My Tribe Gym is more than a place to work out — it’s a community of people who push each other, celebrate each other and grow together. Functional fitness, calisthenics, weightlifting and expert coaching under one roof.' if en else 'My Tribe Gym أكثر من مكان للتمرين، هو مجتمع من أشخاص يشجّعون بعضهم ويحتفلون بإنجازات بعضهم ويتطورون معاً. لياقة وظيفية، كاليسثنكس، رفع أثقال، وتدريب احترافي تحت سقف واحد.'}</p>
       <div class="hero-ctas">
         <a class="btn btn-red" href="{wa(lang)}" target="_blank" rel="noopener">{ICON['wa']} {t['free_trial']}</a>
@@ -386,26 +386,45 @@ def p_index(lang):
         <div><strong>24</strong><span>{'Classes / week' if en else 'حصة أسبوعياً'}</span></div>
       </div>
     </div>
-    <div class="phone">
+  </div>
+</section>
+<div class="stripe"></div>
+
+<section class="section video-section">
+  <div class="container video-split">
+    <div class="phone reveal">
       <video autoplay muted loop playsinline preload="auto" poster="{asset(lang, 'img/hero-poster.jpg')}">
         <source src="{asset(lang, 'video/hero.mp4')}" type="video/mp4">
       </video>
       <button class="sound-btn" type="button" aria-label="{t['sound']}" aria-pressed="false">{ICON['vol_off']}{ICON['vol_on']}</button>
     </div>
+    <div class="reveal">
+      <span class="eyebrow">{'See us in action' if en else 'شاهدنا ونحن نتمرّن'}</span>
+      <h2>{'More than a gym' if en else 'أكثر من مجرد نادي'}</h2>
+      <p>{'Walk in and you’ll feel it straight away — the energy, the encouragement, the people. At My Tribe, every session is a shared effort and every win is celebrated together.' if en else 'من أول ما تدخل ستشعر بالفرق: الطاقة والتشجيع والناس. في My Tribe كل حصة جهد مشترك، وكل إنجاز نحتفل به معاً.'}</p>
+      <div class="features">
+        <div class="feature"><span class="icon">{ICON['users']}</span><div><h3>{'Coached group classes' if en else 'حصص جماعية بإشراف مدربين'}</h3><p>{'Every class is led by a specialist coach who knows your name.' if en else 'كل حصة يقودها مدرب متخصص يعرفك باسمك.'}</p></div></div>
+        <div class="feature"><span class="icon">{ICON['target']}</span><div><h3>{'All levels welcome' if en else 'كل المستويات مرحّب بها'}</h3><p>{'From your very first session to competition prep — workouts scaled to you.' if en else 'من أول حصة لك حتى التحضير للمنافسات، التمارين معدّلة حسب مستواك.'}</p></div></div>
+        <div class="feature"><span class="icon">{ICON['bolt']}</span><div><h3>{'A community that pushes you' if en else 'مجتمع يدعمك في كل تمرين'}</h3><p>{'Train alongside people who show up, cheer loud and make hard work fun.' if en else 'تمرّن مع أشخاص ملتزمين يشجّعونك ويجعلون التمرين الصعب ممتعاً.'}</p></div></div>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-red" href="{INSTAGRAM}" target="_blank" rel="noopener">{ICON['ig']} {'Follow on Instagram' if en else 'تابعنا على إنستغرام'}</a>
+        <a class="btn btn-ghost" href="{YOUTUBE}" target="_blank" rel="noopener">{ICON['yt']} {'Watch on YouTube' if en else 'شاهد على يوتيوب'}</a>
+      </div>
+    </div>
   </div>
 </section>
-<div class="stripe"></div>
 
 <section class="section">
   <div class="container split">
     <div class="reveal">
-      <span class="eyebrow">{'Welcome to the Tribe' if en else 'أهلاً بك في القبيلة'}</span>
+      <span class="eyebrow">{'Welcome to the Tribe' if en else 'أهلاً بك في My Tribe'}</span>
       <h2>{'Stronger together' if en else 'أقوى معاً'}</h2>
       <p>{'We built My Tribe around one idea: people train better when they belong. Here, beginners and athletes share the same floor, coaches know your name, and every PR gets celebrated.' if en else 'بنينا My Tribe حول فكرة واحدة: الناس تتمرن أفضل عندما تشعر بالانتماء. هنا يتشارك المبتدئون والرياضيون نفس المكان، والمدربون يعرفونك باسمك، وكل إنجاز يُحتفل به.'}</p>
       <ul class="checks">
         <li>{'Expert coaches for every discipline' if en else 'مدربون متخصصون لكل رياضة'}</li>
         <li>{'Classes for every level — scaled to you' if en else 'حصص لكل المستويات، معدّلة حسب قدرتك'}</li>
-        <li>{'Nutrition and sports-therapy support in-house' if en else 'دعم غذائي وعلاج رياضي داخل الجيم'}</li>
+        <li>{'Nutrition and sports-therapy support in-house' if en else 'دعم غذائي وعلاج رياضي داخل النادي'}</li>
       </ul>
       <a class="btn btn-ghost" href="{href(lang, 'about')}">{'Our story' if en else 'قصتنا'}</a>
     </div>
@@ -424,7 +443,7 @@ def p_index(lang):
 <section class="section">
   <div class="container split">
     <div class="reveal">
-      <span class="eyebrow">{'Today at the Tribe' if en else 'اليوم في الجيم'}</span>
+      <span class="eyebrow">{'Today at the Tribe' if en else 'اليوم في النادي'}</span>
       <h2>{'Classes today' if en else 'حصص اليوم'}</h2>
       <p>{'Drop into any TribeFit class — our coaches will scale the workout for you. Full weekly timetable on the schedule page.' if en else 'انضم لأي حصة TribeFit، والمدرب سيعدّل التمرين ليناسبك. الجدول الأسبوعي الكامل في صفحة الجدول.'}</p>
       {hours_block(lang)}
@@ -437,16 +456,6 @@ def p_index(lang):
   </div>
 </section>
 
-<section class="section alt">
-  <div class="container">
-    <div class="section-head center reveal"><span class="eyebrow">{'Follow the Tribe' if en else 'تابعنا'}</span><h2>@mytribegym</h2>
-      <p>{'Workouts, member wins and behind-the-scenes from the gym floor.' if en else 'تمارين وإنجازات الأعضاء وكواليس الجيم.'}</p></div>
-    <div class="social-band">
-      <a class="social-card reveal" href="{INSTAGRAM}" target="_blank" rel="noopener">{ICON['ig']}<div><h3>Instagram</h3><p>{'Daily workouts & community moments' if en else 'تمارين يومية ولحظات من المجتمع'}</p></div></a>
-      <a class="social-card reveal" href="{YOUTUBE}" target="_blank" rel="noopener">{ICON['yt']}<div><h3>YouTube</h3><p>{'Technique breakdowns & gym videos' if en else 'شرح التكنيك وفيديوهات الجيم'}</p></div></a>
-    </div>
-  </div>
-</section>
 {cta_band(lang)}"""
 
 def p_about(lang):
@@ -459,15 +468,15 @@ def p_about(lang):
     ]
     vals = "".join(f'<div class="value reveal"><div class="icon">{ICON[i]}</div><h3>{a if en else b}</h3><p>{c if en else d}</p></div>' for i, a, b, c, d in values)
     return page_hero(lang, "mural", "My Tribe Gym", "The Tribe" if en else "من نحن",
-        "A gym built on people. Strength, skill and community — in that order of importance, depending on the day." if en else "جيم مبني على الناس. القوة والمهارة والمجتمع في مكان واحد.") + f"""
+        "A gym built on people. Strength, skill and community — in that order of importance, depending on the day." if en else "نادي مبني على الناس. القوة والمهارة والمجتمع في مكان واحد.") + f"""
 <section class="section">
   <div class="container split">
     <div class="reveal">
       <span class="eyebrow">{'Our story' if en else 'قصتنا'}</span>
-      <h2>{'More than a gym' if en else 'أكثر من جيم'}</h2>
+      <h2>{'More than a gym' if en else 'أكثر من نادي'}</h2>
       <p>{'My Tribe Gym was created for people who want more than machines and mirrors. We wanted a place where you walk in and feel at home — where coaches care about how you move, and members care about how you’re doing.' if en else 'أُسّس My Tribe Gym لمن يريد أكثر من أجهزة ومرايا. أردنا مكاناً تدخله فتشعر أنك في بيتك، حيث يهتم المدرب بطريقة حركتك ويهتم الأعضاء بأحوالك.'}</p>
       <p>{'Under one roof we bring together functional fitness, calisthenics, weightlifting, injury prevention, nutrition and private coaching, led by a team of specialists who each bring their own discipline to the floor.' if en else 'نجمع تحت سقف واحد اللياقة الوظيفية والكاليسثنكس ورفع الأثقال والوقاية من الإصابات والتغذية والتدريب الخاص، بقيادة فريق من المتخصصين، لكل منهم مجاله.'}</p>
-      <p>{'Whatever brings you in — getting fit, getting strong, coming back from injury or just finding your people — you’ll find your tribe here.' if en else 'مهما كان سبب قدومك، لياقة أو قوة أو عودة من إصابة أو بحثاً عن ناس يشبهونك، ستجد قبيلتك هنا.'}</p>
+      <p>{'Whatever brings you in — getting fit, getting strong, coming back from injury or just finding your people — you’ll find your tribe here.' if en else 'مهما كان سبب قدومك، لياقة أو قوة أو عودة من إصابة أو بحثاً عن ناس يشبهونك، ستجد مجتمعك هنا.'}</p>
     </div>
     <div class="split-img reveal" style="background-image:url({asset(lang, 'img/rigs.webp')})"></div>
   </div>
@@ -480,7 +489,7 @@ def p_about(lang):
 </section>
 <section class="section">
   <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">{'Inside the gym' if en else 'داخل الجيم'}</span><h2>{'Gallery' if en else 'معرض الصور'}</h2></div>
+    <div class="section-head reveal"><span class="eyebrow">{'Inside the gym' if en else 'داخل النادي'}</span><h2>{'Gallery' if en else 'معرض الصور'}</h2></div>
     <div class="gallery reveal">
       <a class="wide tall" href="{asset(lang, 'img/cover.webp')}" style="background-image:url({asset(lang, 'img/cover-sm.webp')})" aria-label="Gym floor"></a>
       <a class="wide" href="{asset(lang, 'img/rigs.webp')}" style="background-image:url({asset(lang, 'img/rigs-sm.webp')})" aria-label="Rigs"></a>
@@ -530,9 +539,9 @@ def p_schedule(lang):
 <section class="section alt">
   <div class="container split">
     <div class="reveal">
-      <span class="eyebrow">{'Open gym' if en else 'الجيم المفتوح'}</span>
+      <span class="eyebrow">{'Open gym' if en else 'النادي المفتوح'}</span>
       <h2>{'Opening hours' if en else 'أوقات الدوام'}</h2>
-      <p>{'Outside class times the gym floor is open for members’ own training.' if en else 'خارج أوقات الحصص، الجيم متاح للأعضاء للتمرين الحر.'}</p>
+      <p>{'Outside class times the gym floor is open for members’ own training.' if en else 'خارج أوقات الحصص، النادي متاح للأعضاء للتمرين الحر.'}</p>
     </div>
     <div class="reveal">{hours_block(lang)}</div>
   </div>
@@ -583,7 +592,7 @@ def p_membership(lang):
          "نعم، والكثير من الأعضاء يفعلون ذلك. اسألنا عن دمج الاشتراك مع باقة تدريب خاص."),
         ("Do you offer nutrition support?", "هل تقدّمون دعماً غذائياً؟",
          "Yes. Our in-house dietitian offers consultations and personalised plans.",
-         "نعم. أخصائية التغذية في الجيم تقدّم استشارات وخططاً مخصصة."),
+         "نعم. أخصائية التغذية في النادي تقدّم استشارات وخططاً مخصصة."),
     ]
     faq = "".join(f"<details><summary>{a if en else b}</summary><p>{c if en else d}</p></details>" for a, b, c, d in faqs)
     return page_hero(lang, "weights", "My Tribe Gym", "Membership" if en else "الاشتراكات",
@@ -643,12 +652,12 @@ def p_facilities(lang):
     <div class="split-img reveal" style="background-image:url({asset(lang, 'img/cafe.webp')})"></div>
     <div class="reveal">
       <span class="eyebrow">{'The Tribe Café' if en else 'كافيه Tribe'}</span>
-      <h2>{'Refuel & hang out' if en else 'استعد طاقتك واجلس مع القبيلة'}</h2>
-      <p>{'Our upstairs café overlooks the training floor — grab a coffee before your session, a snack after, or just stay and catch up with the Tribe.' if en else 'الكافيه في الطابق العلوي يطل على مساحة التدريب. خذ قهوتك قبل الحصة أو وجبة خفيفة بعدها، أو ابقَ وتحدّث مع أصدقائك من القبيلة.'}</p>
+      <h2>{'Refuel & hang out' if en else 'استعد طاقتك واجلس مع مجتمعنا'}</h2>
+      <p>{'Our upstairs café overlooks the training floor — grab a coffee before your session, a snack after, or just stay and catch up with the Tribe.' if en else 'الكافيه في الطابق العلوي يطل على مساحة التدريب. خذ قهوتك قبل الحصة أو وجبة خفيفة بعدها، أو ابقَ وتحدّث مع أصدقائك في النادي.'}</p>
       <ul class="checks">
         <li>{'Specialty coffee & cold drinks' if en else 'قهوة مختصة ومشروبات باردة'}</li>
         <li>{'Snacks to refuel after training' if en else 'وجبات خفيفة بعد التمرين'}</li>
-        <li>{'Lounge seating overlooking the gym' if en else 'جلسات مريحة تطل على الجيم'}</li>
+        <li>{'Lounge seating overlooking the gym' if en else 'جلسات مريحة تطل على النادي'}</li>
       </ul>
     </div>
   </div>
