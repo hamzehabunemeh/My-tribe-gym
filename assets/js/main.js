@@ -16,12 +16,31 @@
     video.muted = true;
     var p = video.play(); if (p && p.catch) p.catch(function () {});
   }
-  if (video && sbtn) sbtn.addEventListener('click', function () {
-    video.muted = !video.muted;
-    if (!video.muted) { video.volume = 1; video.play(); }
-    sbtn.classList.toggle('unmuted', !video.muted);
-    sbtn.setAttribute('aria-pressed', String(!video.muted));
-  });
+  if (video && sbtn) {
+    var setUI = function () {
+      sbtn.classList.toggle('unmuted', !video.muted);
+      sbtn.setAttribute('aria-pressed', String(!video.muted));
+    };
+    sbtn.addEventListener('click', function (e) {
+      e.preventDefault(); e.stopPropagation();
+      var wantSound = video.muted;
+      video.muted = !wantSound;
+      if (wantSound) {
+        video.removeAttribute('muted');
+        try { video.volume = 1; } catch (err) {}
+        var pr = video.play();
+        if (pr && pr.catch) pr.catch(function () {
+          // iOS sometimes refuses: restart the video with sound inside the tap
+          video.pause(); video.muted = false;
+          video.play().catch(function () { video.muted = true; setUI(); });
+        });
+      } else {
+        video.setAttribute('muted', '');
+      }
+      setUI();
+    });
+    video.addEventListener('volumechange', setUI);
+  }
 
   // today (JS: 0=Sun..6=Sat)
   var keys = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];

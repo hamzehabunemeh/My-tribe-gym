@@ -200,7 +200,12 @@ def href(lang, page, frag=""):
     return name + (f"#{frag}" if frag else "")
 
 def asset(lang, p):
-    return ("../" if lang == "ar" else "") + "assets/" + p
+    url = ("../" if lang == "ar" else "") + "assets/" + p
+    if p.endswith((".css", ".js")):  # cache-busting so phones always get the latest version
+        import hashlib
+        with open(os.path.join(ROOT, "assets", p), "rb") as f:
+            url += "?v=" + hashlib.md5(f.read()).hexdigest()[:8]
+    return url
 
 def other_href(lang, page):
     fname = "index.html" if page == "index" else f"{page}.html"
